@@ -63,5 +63,15 @@ namespace PizzaStore.Client
       System.Console.WriteLine("Press any other key to exit");
       System.Console.WriteLine();
     }
+    public static void ChooseSalesPizza()
+    {
+      System.Console.WriteLine("Select 0 for All Pizza Orders");
+      System.Console.WriteLine("Select 1 for Cheese Pizza Orders");
+      System.Console.WriteLine("Select 2 for Peperroni Pizza Orders");
+      System.Console.WriteLine("Select 3 for Hawaaian Pizza Orders");
+      System.Console.WriteLine("Select 4 for Custom Pizza Orders");
+      System.Console.WriteLine("Press any other key to exit");
+      System.Console.WriteLine();
+    }
   }
 }

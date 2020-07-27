@@ -179,12 +179,12 @@ values
 (10000, 1000, 100, 'Cheese', 8.0, getdate(), 1),
 (11000, 1000, 200, 'Cheese', 8.25, getdate(), 1),
 (12000, 1000, 300, 'Cheese', 8.5, getdate(), 1),
-(13000, 1100, 100, 'Pepperoni', 9.0, getdate(), 1),
-(14000, 1100, 200, 'Pepperoni', 9.25, getdate(), 1),
-(15000, 1100, 300, 'Pepperoni', 9.5, getdate(), 1),
-(16000, 1200, 100, 'Hawaiian', 9.0, getdate(), 1),
-(17000, 1200, 200, 'Hawaiian', 9.25, getdate(), 1),
-(18000, 1200, 200, 'Hawaiian', 9.5, getdate(), 1)
+(20000, 1100, 100, 'Pepperoni', 9.0, getdate(), 1),
+(21000, 1100, 200, 'Pepperoni', 9.25, getdate(), 1),
+(22000, 1100, 300, 'Pepperoni', 9.5, getdate(), 1),
+(30000, 1200, 100, 'Hawaiian', 9.0, getdate(), 1),
+(31000, 1200, 200, 'Hawaiian', 9.25, getdate(), 1),
+(32000, 1200, 200, 'Hawaiian', 9.5, getdate(), 1)
 
 
   -- pizzatopping
@@ -197,21 +197,21 @@ values
 (10000, 200, getdate(), 1),
 (11000, 200, getdate(), 1),
 (12000, 200, getdate(), 1),
-(13000, 100, getdate(), 1),
-(14000, 100, getdate(), 1),
-(15000, 100, getdate(), 1),
-(13000, 300, getdate(), 1),
-(14000, 300, getdate(), 1),
-(15000, 300, getdate(), 1),
-(16000, 100, getdate(), 1),
-(17000, 100, getdate(), 1),
-(18000, 100, getdate(), 1),
-(16000, 600, getdate(), 1),
-(17000, 600, getdate(), 1),
-(18000, 600, getdate(), 1),
-(16000, 700, getdate(), 1),
-(17000, 700, getdate(), 1),
-(18000, 700, getdate(), 1)
+(20000, 100, getdate(), 1),
+(21000, 100, getdate(), 1),
+(22000, 100, getdate(), 1),
+(20000, 300, getdate(), 1),
+(21000, 300, getdate(), 1),
+(22000, 300, getdate(), 1),
+(30000, 100, getdate(), 1),
+(31000, 100, getdate(), 1),
+(32000, 100, getdate(), 1),
+(30000, 600, getdate(), 1),
+(31000, 600, getdate(), 1),
+(32000, 600, getdate(), 1),
+(30000, 700, getdate(), 1),
+(31000, 700, getdate(), 1),
+(32000, 700, getdate(), 1)
 
   -- orders
   
