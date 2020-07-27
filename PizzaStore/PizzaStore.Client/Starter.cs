@@ -43,9 +43,9 @@ namespace PizzaStore.Client
 
     public static void ChooseSize()
     {
-      System.Console.WriteLine("Select 1 for Family");
+      System.Console.WriteLine("Select 1 for Regular");
       System.Console.WriteLine("Select 2 for Large");
-      System.Console.WriteLine("Select 3 for Regular");
+      System.Console.WriteLine("Select 3 for Family");
       System.Console.WriteLine();
     }
 

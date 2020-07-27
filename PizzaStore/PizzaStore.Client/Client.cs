@@ -137,7 +137,7 @@ static string GetPizzaSize(Order cart, ref bool exit)
     switch (selection)
     {
       case 1:
-        sizeSelected = "Family";
+        sizeSelected = "Regular";
         System.Console.WriteLine($"You chose {sizeSelected}");
         exit1 = true;
         break;
@@ -147,7 +147,7 @@ static string GetPizzaSize(Order cart, ref bool exit)
         exit1 = true;
         break;
       case 3:
-        sizeSelected = "Regular";
+        sizeSelected = "Family";
         System.Console.WriteLine($"You chose {sizeSelected}");
         exit1 = true;
         break;
