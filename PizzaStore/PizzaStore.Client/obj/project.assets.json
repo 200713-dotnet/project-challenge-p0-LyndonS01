@@ -1,0 +1,86 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "PizzaStore.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/PizzaStore.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PizzaStore.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PizzaStore.Domain/1.0.0": {
+      "type": "project",
+      "path": "../PizzaStore.Domain/PizzaStore.Domain.csproj",
+      "msbuildProject": "../PizzaStore.Domain/PizzaStore.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "PizzaStore.Domain >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/lyndons/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/PizzaStore.Client.csproj",
+      "projectName": "PizzaStore.Client",
+      "projectPath": "/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/PizzaStore.Client.csproj",
+      "packagesPath": "/home/lyndons/.nuget/packages/",
+      "outputPath": "/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/lyndons/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/PizzaStore.Domain.csproj": {
+              "projectPath": "/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/PizzaStore.Domain.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

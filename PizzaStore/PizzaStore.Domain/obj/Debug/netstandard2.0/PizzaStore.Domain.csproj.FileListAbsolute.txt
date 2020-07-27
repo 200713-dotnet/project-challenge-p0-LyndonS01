@@ -1,0 +1,9 @@
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/bin/Debug/netstandard2.0/PizzaStore.Domain.deps.json
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/bin/Debug/netstandard2.0/PizzaStore.Domain.dll
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/bin/Debug/netstandard2.0/PizzaStore.Domain.pdb
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/obj/Debug/netstandard2.0/PizzaStore.Domain.csprojAssemblyReference.cache
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/obj/Debug/netstandard2.0/PizzaStore.Domain.AssemblyInfoInputs.cache
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/obj/Debug/netstandard2.0/PizzaStore.Domain.AssemblyInfo.cs
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/obj/Debug/netstandard2.0/PizzaStore.Domain.csproj.CoreCompileInputs.cache
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/obj/Debug/netstandard2.0/PizzaStore.Domain.dll
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Domain/obj/Debug/netstandard2.0/PizzaStore.Domain.pdb
