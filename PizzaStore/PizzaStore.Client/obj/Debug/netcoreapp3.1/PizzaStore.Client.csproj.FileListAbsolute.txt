@@ -1,0 +1,16 @@
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/bin/Debug/netcoreapp3.1/PizzaStore.Client
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/bin/Debug/netcoreapp3.1/PizzaStore.Client.deps.json
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/bin/Debug/netcoreapp3.1/PizzaStore.Client.runtimeconfig.json
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/bin/Debug/netcoreapp3.1/PizzaStore.Client.runtimeconfig.dev.json
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/bin/Debug/netcoreapp3.1/PizzaStore.Client.dll
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/bin/Debug/netcoreapp3.1/PizzaStore.Client.pdb
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/bin/Debug/netcoreapp3.1/PizzaStore.Domain.dll
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/bin/Debug/netcoreapp3.1/PizzaStore.Domain.pdb
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/obj/Debug/netcoreapp3.1/PizzaStore.Client.csprojAssemblyReference.cache
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/obj/Debug/netcoreapp3.1/PizzaStore.Client.AssemblyInfoInputs.cache
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/obj/Debug/netcoreapp3.1/PizzaStore.Client.AssemblyInfo.cs
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/obj/Debug/netcoreapp3.1/PizzaStore.Client.csproj.CoreCompileInputs.cache
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/obj/Debug/netcoreapp3.1/PizzaStore.Client.csproj.CopyComplete
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/obj/Debug/netcoreapp3.1/PizzaStore.Client.dll
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/obj/Debug/netcoreapp3.1/PizzaStore.Client.pdb
+/home/lyndons/2007_13_dotnet/200713_dotnet/week_2/PizzaStore/PizzaStore.Client/obj/Debug/netcoreapp3.1/PizzaStore.Client.genruntimeconfig.cache
