@@ -7,7 +7,7 @@ namespace PizzaStore.Domain.Models
   {
     // STATE
     //fields
-    private readonly string _imageUrl = "https://some-url";
+    // private readonly string _imageUrl = "https://some-url";
     // private const double _diameter = 0;
     private Dictionary<string, double> Sizes = new Dictionary<string, double>(); //Size and corresponding diameter in inches
 
@@ -19,6 +19,8 @@ namespace PizzaStore.Domain.Models
     //properties
     public string Size { get; set; }
     public string Crust { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
     public const double _sizeFamily = 16.0;
     public const double _sizeLarge = 12.0;
     public const double _sizeRegular = 10.0;
@@ -29,12 +31,17 @@ namespace PizzaStore.Domain.Models
       {
         return _toppings; // backing field
       }
+      set
+      {
+        
+      }
     }
 
     // BEHAVIOR
     //constructors
-    public Pizza(string size, string crust, List<string> toppings)
+    public Pizza(string name, string size, string crust, List<string> toppings, decimal price)
     {
+      Name = name;
       Sizes.Add("Regular", _sizeRegular);
       Sizes.Add("Large", _sizeLarge);
       Sizes.Add("Family", _sizeFamily);
@@ -42,6 +49,7 @@ namespace PizzaStore.Domain.Models
       Diameter = Sizes[size];
       Crust = crust;
       Toppings.AddRange(toppings);
+      Price = price;
     }
 
     public Pizza()
@@ -88,7 +96,7 @@ namespace PizzaStore.Domain.Models
       //   sb.Append(t + ", ");
       // }
 
-      return $"{Size} ({Diameter} in.), {Crust}, Pizza. Toppings incl.: {sb}";
+      return $"{Size} ({Diameter} in.), {Name}, {Crust}, {Name} Pizza. Toppings incl.: {sb}";
       // return $"{Size}, {Crust}, Pizza. Toppings incl.: {sb}";
     }
 

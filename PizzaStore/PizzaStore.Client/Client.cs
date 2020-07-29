@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using PizzaStore.Domain.Models;
+using System.Linq;
+using PizzaStore.Storing.Repository;
+// using repo = PizzaStore.Storing.Repository;
 
 namespace PizzaStore.Client
 {
@@ -13,20 +16,29 @@ namespace PizzaStore.Client
       while (!exit)
       {
         List<string> toppings = new List<string>();
+        var pizzaPrice = 8.0m;                                          // fix it for now
 
-        string pizzaType = GetPizzaType(cart, toppings, ref exit);
+        string pizzaType = GetPizzaType(cart, toppings, pizzaPrice, ref exit);
 
         var pizzaSize = "";
         var pizzaCrust = "";
         var toppings_list = "";
+
         if (pizzaType != "")
         {
           pizzaSize = GetPizzaSize(cart, ref exit);                     // Ask for the size of pizza
           pizzaCrust = GetPizzaCrust(cart, ref exit);                   // Ask for the desired crust type
           toppings_list = String.Join(", ", toppings.ToArray());
-          System.Console.WriteLine($"Pizza type is {pizzaType}, size = {pizzaSize}, toppings = {toppings_list}");
 
-          cart.CreatePizza(pizzaSize, pizzaCrust, toppings);   // add the pizza to the order
+
+
+          System.Console.WriteLine($"Pizza type is {pizzaType}, size = {pizzaSize}, toppings = {toppings_list}, price = {pizzaPrice}");
+
+          cart.CreatePizza(pizzaType, pizzaSize, pizzaCrust, toppings, pizzaPrice);   // add the pizza to the order
+
+          var repository = new PizzaRepository();
+          Pizza lastPizza = cart.Pizzas.Last();
+          repository.Create(lastPizza);
 
           System.Console.WriteLine($"We added a {pizzaSize}, {pizzaCrust}, {pizzaType} pizza to your order.\n");
         }
@@ -45,7 +57,7 @@ namespace PizzaStore.Client
 
       }
 
-      static string GetPizzaType(Order cart, List<string> toppings, ref bool exit)
+      static string GetPizzaType(Order cart, List<string> toppings, decimal price, ref bool exit)
       {
         var exit1 = false;
         string typeSelected = "";
@@ -92,12 +104,18 @@ namespace PizzaStore.Client
               typeSelected = pizzaTypes[selection - 1];
               var toppings_list = "";
               toppings_list = String.Join(", ", toppings.ToArray());
+              price = 9.0m;           // fix it for now
               System.Console.WriteLine($"You chose {typeSelected} with {toppings_list}.");
               break;
             case 5:
               DisplayCart(cart);
               continue;
             case 6:
+
+              // var repository = new PizzaRepository();
+              // Order myOrder = cart;
+              // repository.CreateOrderDb(myOrder);
+
               var fmw = new FileManager();
               fmw.Write(cart);
               System.Console.WriteLine("Thank you for your order. Goodbye!");
@@ -110,11 +128,11 @@ namespace PizzaStore.Client
             case 8:
               exit = true;
               break;
-      default:
+            default:
               break;
-    }
+          }
 
-    System.Console.WriteLine();
+          System.Console.WriteLine();
           exit1 = true;
 
         } while (!exit1);
@@ -122,158 +140,159 @@ namespace PizzaStore.Client
         return typeSelected;
       }
 
-static string GetPizzaSize(Order cart, ref bool exit)
-{
-  var exit1 = false;
-  var selection = 0;
-  var sizeSelected = "";
-
-  while (!exit && !exit1)
-  {
-    Starter.ChooseSize();
-
-    int.TryParse(Console.ReadLine(), out selection);
-
-    switch (selection)
-    {
-      case 1:
-        sizeSelected = "Regular";
-        System.Console.WriteLine($"You chose {sizeSelected}");
-        exit1 = true;
-        break;
-      case 2:
-        sizeSelected = "Large";
-        System.Console.WriteLine($"You chose {sizeSelected}");
-        exit1 = true;
-        break;
-      case 3:
-        sizeSelected = "Family";
-        System.Console.WriteLine($"You chose {sizeSelected}");
-        exit1 = true;
-        break;
-      default:
-        continue;
-    }
-
-  }
-  return sizeSelected;
-}
-
-static string GetPizzaCrust(Order cart, ref bool exit)
-{
-  var exit1 = false;
-  var selection = 0;
-  var crustSelected = "";
-
-  while (!exit && !exit1)
-  {
-    Starter.ChooseCrust();
-
-    int.TryParse(Console.ReadLine(), out selection);
-
-    switch (selection)
-    {
-      case 1:
-        crustSelected = "Thin";
-        System.Console.WriteLine($"You chose {crustSelected}");
-        exit1 = true;
-        break;
-      case 2:
-        crustSelected = "Thick";
-        System.Console.WriteLine($"You chose {crustSelected}");
-        exit1 = true;
-        break;
-      case 3:
-        crustSelected = "Stuffed";
-        System.Console.WriteLine($"You chose {crustSelected}");
-        exit1 = true;
-        break;
-      default:
-        continue;
-    }
-
-  }
-  return crustSelected;
-}
-
-static void AddCustomToppings(List<string> toppings)
-{
-  // define available toppings 
-  var toppingTypes = new List<string> { "cheese", "cheese (extra)", "pepperoni", "sausage", "bell peppers", "ham", "pineapple", "bacon", "mushrooms" };
-  var exit = false;
-  var top_max = 5;
-  var top_min = 2;
-  var top_count = 0;
-
-  do
-  {
-    var chosen_topping = "";
-    chosen_topping = ShowAvailableToppings(toppingTypes, ref exit);
-    if (chosen_topping != "")
-    {
-      toppings.Add(chosen_topping);
-      toppingTypes.Remove(chosen_topping);
-      top_count++;
-
-      var toppings_list = String.Join(", ", toppings.ToArray());
-      System.Console.WriteLine($"You chose {toppings_list} topping(s).\n");
-    }
-    else
-    {
-      if (top_count == top_min - 1)
+      static string GetPizzaSize(Order cart, ref bool exit)
       {
-        System.Console.WriteLine("A minimum of two toppings is required for custom pizzas.\n");
-        System.Console.WriteLine("Press any key to continue.\n");
-        System.Console.ReadKey();
+        var exit1 = false;
+        var selection = 0;
+        var sizeSelected = "";
+
+        while (!exit && !exit1)
+        {
+          Starter.ChooseSize();
+
+          int.TryParse(Console.ReadLine(), out selection);
+
+          switch (selection)
+          {
+            case 1:
+              sizeSelected = "Regular";
+              System.Console.WriteLine($"You chose {sizeSelected}");
+              exit1 = true;
+              break;
+            case 2:
+              sizeSelected = "Large";
+              System.Console.WriteLine($"You chose {sizeSelected}");
+              exit1 = true;
+              break;
+            case 3:
+              sizeSelected = "Family";
+              System.Console.WriteLine($"You chose {sizeSelected}");
+              exit1 = true;
+              break;
+            default:
+              continue;
+          }
+
+        }
+        return sizeSelected;
       }
+
+      static string GetPizzaCrust(Order cart, ref bool exit)
+      {
+        var exit1 = false;
+        var selection = 0;
+        var crustSelected = "";
+
+        while (!exit && !exit1)
+        {
+          Starter.ChooseCrust();
+
+          int.TryParse(Console.ReadLine(), out selection);
+
+          switch (selection)
+          {
+            case 1:
+              crustSelected = "Thin";
+              System.Console.WriteLine($"You chose {crustSelected}");
+              exit1 = true;
+              break;
+            case 2:
+              crustSelected = "Thick";
+              System.Console.WriteLine($"You chose {crustSelected}");
+              exit1 = true;
+              break;
+            case 3:
+              crustSelected = "Stuffed";
+              System.Console.WriteLine($"You chose {crustSelected}");
+              exit1 = true;
+              break;
+            default:
+              continue;
+          }
+
+        }
+        return crustSelected;
+      }
+
+      static void AddCustomToppings(List<string> toppings)
+      {
+        // define available toppings 
+        var toppingTypes = new List<string> { "cheese", "cheese (extra)", "pepperoni", "sausage", "bell peppers", "ham", "pineapple", "bacon", "mushrooms" };
+        var exit = false;
+        var top_max = 5;
+        var top_min = 2;
+        var top_count = 0;
+
+        do
+        {
+          var chosen_topping = "";
+          chosen_topping = ShowAvailableToppings(toppingTypes, ref exit);
+          if (chosen_topping != "")
+          {
+            toppings.Add(chosen_topping);
+            toppingTypes.Remove(chosen_topping);
+            top_count++;
+
+            var toppings_list = String.Join(", ", toppings.ToArray());
+            System.Console.WriteLine($"You chose {toppings_list} topping(s).\n");
+          }
+          else
+          {
+            if (top_count == top_min - 1)
+            {
+              System.Console.WriteLine("A minimum of two toppings is required for custom pizzas.\n");
+              System.Console.WriteLine("Press any key to continue.\n");
+              System.Console.ReadKey();
+            }
+          }
+
+          if (top_count == top_max)
+          {
+            System.Console.WriteLine("You have added the maximum number of toppings.\n");
+            System.Console.WriteLine("Press any key to return to the previous menu.\n");
+            exit = true;
+          }
+
+        } while (!exit);
+      }
+
+      static string ShowAvailableToppings(List<string> top_choices, ref bool exit)
+      {
+        var i = 1;
+        var selection = 0;
+        var exit1 = false;
+        var chosen_topping = "";
+
+        do
+        {
+          System.Console.WriteLine("Choose your toppings");
+          System.Console.WriteLine();
+
+          foreach (var t in top_choices)
+          {
+            System.Console.WriteLine($"Select {i} for {t}");
+            i++;
+          }
+          System.Console.WriteLine("Press any other key if you are done adding toppings.");
+
+          System.Console.WriteLine();
+          int.TryParse(Console.ReadLine(), out selection);
+
+          if (selection < 1 || selection > top_choices.Count)
+          {
+            exit1 = true;
+            exit = true;
+            continue;
+          }
+          string[] temp = top_choices.ToArray();
+          chosen_topping = temp[selection - 1];
+          exit1 = true;
+
+        } while (!exit1);
+        return chosen_topping;
+      }
+
     }
 
-    if (top_count == top_max)
-    {
-      System.Console.WriteLine("You have added the maximum number of toppings.\n");
-      System.Console.WriteLine("Press any key to return to the previous menu.\n");
-      exit = true;
-    }
-
-  } while (!exit);
-}
-
-static string ShowAvailableToppings(List<string> top_choices, ref bool exit)
-{
-  var i = 1;
-  var selection = 0;
-  var exit1 = false;
-  var chosen_topping = "";
-
-  do
-  {
-    System.Console.WriteLine("Choose your toppings");
-    System.Console.WriteLine();
-
-    foreach (var t in top_choices)
-    {
-      System.Console.WriteLine($"Select {i} for {t}");
-      i++;
-    }
-    System.Console.WriteLine("Press any other key if you are done adding toppings.");
-
-    System.Console.WriteLine();
-    int.TryParse(Console.ReadLine(), out selection);
-
-    if (selection < 1 || selection > top_choices.Count)
-    {
-      exit1 = true;
-      exit = true;
-      continue;
-    }
-    string[] temp = top_choices.ToArray();
-    chosen_topping = temp[selection - 1];
-    exit1 = true;
-
-  } while (!exit1);
-  return chosen_topping;
-}
-
-    }
   }
 }

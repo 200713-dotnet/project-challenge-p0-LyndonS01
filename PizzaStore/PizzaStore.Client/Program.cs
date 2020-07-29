@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using PizzaStore.Domain.Models;
+using PizzaStore.Storing;
 
 namespace PizzaStore.Client
 {
@@ -8,6 +9,7 @@ namespace PizzaStore.Client
   {
     static void Main()
     {
+      // TestDbConnection();
       Welcome();
     }
 
@@ -57,6 +59,16 @@ namespace PizzaStore.Client
           break;
       }
 
+    }
+
+    static void TestDbConnection()
+    {
+      var db = new PizzaStoreDbContext();
+
+      foreach (var p in db.Pizza)
+      {
+        System.Console.WriteLine(p.PizzaName);
+      }
     }
   }
 }
