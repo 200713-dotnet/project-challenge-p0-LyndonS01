@@ -159,7 +159,7 @@ namespace PizzaStore.Client
       System.Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy"));
       System.Console.WriteLine();
 
-      System.Console.WriteLine("Item No." + "Item Description                " + "Qty. " + "Price");
+      System.Console.WriteLine("Item No.  " + "Item Description                " + "Qty. " + "Price");
       System.Console.WriteLine("--------------------------------------------------------\n");
 
       var item = 1;
@@ -169,7 +169,7 @@ namespace PizzaStore.Client
 
       foreach (var o in results)
       {
-        System.Console.WriteLine($"{o.Size}, {o.Crust} Crust, {o.Name} Pizza        {qty}  ${o.Price}");
+        System.Console.WriteLine($"{item}  {o.Size}, {o.Crust} Crust, {o.Name} Pizza        {qty}  ${o.Price}");
         totalQty += qty;
         totalPrice += o.Price;
         item++;
